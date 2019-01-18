@@ -1,2 +1,3 @@
 # iiasa-frontend
-IIASA Frontend Developer Challenge
+
+A codebase for the IIASA-EOCS Frontend Developer Challenge
