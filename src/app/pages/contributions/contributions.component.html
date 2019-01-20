@@ -1,1 +1,13 @@
 <p>Test of time</p>
+
+<div *ngFor="let contribution of contributions">
+  <p> {{ contribution.id }}</p>
+  <div *ngFor="let photo of contribution.photos">
+    <p>{{ photo.direction }} </p>
+    <img [src]="photo.url" [alt]="photo.direction">
+  </div>
+  <div *ngFor="let landobservation of contribution.landobservations">
+    <p> Land Cover: {{ landobservation.landcover }} </p>
+    <p> Land Use: {{ landobservation.landuse }} </p>
+  </div>
+</div>

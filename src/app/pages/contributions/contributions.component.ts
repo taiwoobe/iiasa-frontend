@@ -8,7 +8,8 @@ import { ContributionsService } from '../../services/contributions.service';
 })
 export class ContributionsComponent implements OnInit {
 
-  private contributions:  Array<object> = [];
+  // Defining the contributions variable as an Array of Objects 
+  contributions: Object[];
 
   constructor(private  contributionsService:  ContributionsService) { }
 
@@ -17,9 +18,9 @@ export class ContributionsComponent implements OnInit {
   }
 
   getContributions() {
-    this.contributionsService.getContributions().subscribe((data: Array<object>) => {
+    this.contributionsService.getContributions().subscribe((data: Object[]) => {
       this.contributions = data;
-      console.table(data);
+      console.log(this.contributions);
     });
   }
 
