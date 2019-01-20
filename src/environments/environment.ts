@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_URL_V1: 'https://api.myjson.com',
+  API_URL_V2: 'https://demo0929535.mockable.io'
 };
 
 /*

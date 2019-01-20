@@ -1,0 +1,94 @@
+.navbar {
+    padding: 16px;
+}
+.btn-outline-success {
+    color: #094e70;
+    border-color: #094e70;
+}
+.btn-outline-success:hover {
+    color: #fff;
+    background-color: #094e70;
+    border-color: #094e70;
+}
+.btn-outline-success:not(:disabled):not(.disabled).active, .btn-outline-success:not(:disabled):not(.disabled):active, .show>.btn-outline-success.dropdown-toggle {
+    color: #fff;
+    background-color: #094e70;
+    border-color: #094e70;
+}
+.btn-outline-success:not(:disabled):not(.disabled).active:focus, .btn-outline-success:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-success.dropdown-toggle:focus {
+    box-shadow: none;
+}
+.form-control{
+    &:focus{
+        border-color: #094e70;
+        box-shadow: none;
+    }
+}
+.user-pics {
+    img {
+        max-width: 35px;
+        border-radius: 50%;
+    }
+}
+.dropbtn {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    padding: 20px 0;
+    right: 0;
+    top: 40px;
+    background-color: #f9f9f9;
+    min-width: 180px;
+    border-radius: 2px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.arrow_div {
+    display: none;
+    border:solid 10px transparent;
+    border-bottom-color: #fff;
+    position: absolute;
+    margin: -18px 0 0 55px;
+}
+.dropdown-content {
+    a {
+        color: #094e70;
+        padding: 12px 20px;
+        text-decoration: none;
+        display: block;
+    }
+} 
+.dropdown-content {
+    a{
+        &:hover {
+            background-color: #f1f1f1;
+            color: #094e70;
+        }
+    }
+}
+.dropdown {
+    &:hover {
+        .dropdown-content, .arrow_div {
+            display: block;
+        }
+    }
+}
+@media (min-width: 992px) {
+    .navbar-brand {
+        display: none;
+    }
+}
+@media (max-width: 991px) {
+    .dropdown-content {
+        right: auto;
+    }
+}

@@ -1,13 +1,30 @@
-<p>Test of time</p>
+<div class="container-fluid" id="container">
 
-<div *ngFor="let contribution of contributions">
-  <p> {{ contribution.id }}</p>
-  <div *ngFor="let photo of contribution.photos">
-    <p>{{ photo.direction }} </p>
-    <img [src]="photo.url" [alt]="photo.direction">
+  <!-- Content Header -->
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Manage Contributions</h3>
+    </div>
   </div>
-  <div *ngFor="let landobservation of contribution.landobservations">
-    <p> Land Cover: {{ landobservation.landcover }} </p>
-    <p> Land Use: {{ landobservation.landuse }} </p>
+  <!-- End of Content Header -->
+
+  <!-- Listing Content -->
+  <div class="row card-deck">
+    <div class="col-sm-12" *ngFor="let contribution of contributions">
+      <div class="row">
+        <div class="card" *ngFor="let photo of contribution.photos">
+          <img class="card-img-top" [src]="photo.url" [alt]="photo.direction">
+          <div class="card-body">
+            <h5 class="card-title">{{ photo.direction }}</h5>
+          </div>
+          <div class="card-footer" *ngFor="let landobservation of contribution.landobservations">
+            <p> Land Cover: {{ landobservation.landcover }} </p>
+            <p> Land Use: {{ landobservation.landuse }} </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <!-- End of Listing Content -->
+
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ContributionsService } from '../../services/contributions.service';
+import { ContributionService } from '../../services/contribution/contribution.service';
 
 @Component({
   selector: 'app-contributions',
@@ -9,19 +9,27 @@ import { ContributionsService } from '../../services/contributions.service';
 export class ContributionsComponent implements OnInit {
 
   // Defining the contributions variable as an Array of Objects 
-  contributions: Object[];
+  contributions: Array<object> = [];
 
-  constructor(private  contributionsService:  ContributionsService) { }
+  constructor(private contributionService: ContributionService) { }
 
   ngOnInit() {
     this.getContributions();
   }
 
-  getContributions() {
-    this.contributionsService.getContributions().subscribe((data: Object[]) => {
-      this.contributions = data;
-      console.log(this.contributions);
-    });
+  private getContributions = () => {
+    this.contributionService.getContributions().subscribe((data) => this.onSuccess(data.body),
+      (error) => this.onError(error));
+  }
+
+  onSuccess(data: Object[]) {
+    this.contributions = data;
+    console.log(this.contributions);
+  }
+
+  onError(error) {
+    console.log(error);
   }
 
 }
+
