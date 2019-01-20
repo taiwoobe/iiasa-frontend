@@ -9,22 +9,50 @@
   <!-- End of Content Header -->
 
   <!-- Listing Content -->
-  <div class="row card-deck">
-    <div class="col-sm-12" *ngFor="let contribution of contributions">
+  <div class="row">
+    <div class="col-12">
       <div class="row">
-        <div class="card" *ngFor="let photo of contribution.photos">
-          <img class="card-img-top" [src]="photo.url" [alt]="photo.direction">
-          <div class="card-body">
-            <h5 class="card-title">{{ photo.direction }}</h5>
-          </div>
-          <div class="card-footer" *ngFor="let landobservation of contribution.landobservations">
-            <p> Land Cover: {{ landobservation.landcover }} </p>
-            <p> Land Use: {{ landobservation.landuse }} </p>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12 col-md-4" *ngFor="let contribution of contributions">
+              <div class="photo-slider">
+                <div class="card-deck">
+                  <div class="card">
+                    <ngb-carousel *ngIf="contribution" [showNavigationArrows]="showNavigationArrows"
+                      [showNavigationIndicators]="showNavigationIndicators">
+                      <ng-template ngbSlide *ngFor="let photo of contribution.photos">
+                        <img [src]="photo.url" [alt]="photo.direction" class="contribution-image card-img-top">
+                        <div class="carousel-caption">
+                          <p>{{ photo.direction }}</p>
+                        </div>
+                      </ng-template>
+                    </ngb-carousel>
+                    <div class="card-body">
+                        <div>
+                          <ng-container *ngFor="let observation of contribution.landobservations">
+                            <ul>
+                              <li>Device: {{ contribution.platform.device }}</li>
+                              <li> Location: {{ contribution.location.lat }}, {{ contribution.location.lon }}</li>
+                              <li> Land Cover: {{ observation.landcover }}</li>
+                              <li>Land Use: {{ observation.landuse }}</li>
+                            </ul>
+                          </ng-container>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Updated: {{ contribution.timestamp }}</small>
+                      <div>
+                        <button class="btn btn-primary btn-sm">Approve</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- End of Listing Content -->
+    <!-- End of Listing Content -->
 
-</div>
+  </div>
