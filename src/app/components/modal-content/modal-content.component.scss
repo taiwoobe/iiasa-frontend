@@ -1,0 +1,50 @@
+.left-side {
+    float: left;
+    width: 50%;
+    height: 100%
+}
+.right-side {
+    float: right;
+    width: 50%;
+    height: 100%;
+    img {
+        max-width: 100%;
+        height: 575px;
+        width: 100%;
+    }
+}
+.modal-body {
+    padding: 0;
+    .evaluation-form{
+        padding: 20px;
+    }
+    .form-control{
+        font-size: 15px;
+        label {
+            font-size: 15px;
+        }
+        &:focus {
+            color: #495057;
+            border-color: #042738;
+            box-shadow: none;
+        }
+    }
+    .send-btn {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 15px;
+    }
+    .btn-primary {
+        color: #fff;
+        background-color: #094e70;
+        border-color: #094e70;
+        font-size: 16px;
+        padding: 5px 20px;
+    }
+    .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+        box-shadow: none;
+    }
+    .btn-primary.focus, .btn-primary:focus {
+        box-shadow: none;
+    }
+}

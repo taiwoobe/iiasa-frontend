@@ -1,0 +1,44 @@
+<div *ngIf="userContribution">
+  <!-- <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ userContribution.id }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div> -->
+  <div class="modal-body">
+    <div class="left-side">
+      <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+        <ng-template ngbSlide *ngFor="let photo of userContribution.photos">
+          <img [src]="photo.url" [alt]="photo.direction" class="contribution-image card-img-top">
+          <div class="carousel-caption">
+            <p>{{ photo.direction }}</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+      <div class="evaluation-form">
+        <form>
+          <div class="form-group">
+            <label for="quality">Quality of Contribution</label>
+            <select class="form-control" id="quality" (change)="onCitySelect($event)">
+              <option value="1" selected>Approved </option>
+              <option value="2">Rejected because of photos</option>
+              <option value="3">Rejected because of classifications</option>
+              <option value="4">Rejected because of location</option>
+              <option value="9">Rejected </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="comment">Additional Comments</label>
+            <textarea class="form-control" id="comment" rows="5"></textarea>
+          </div>
+          <div class="send-btn">
+            <button class="btn btn-primary" type="submit">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="right-side">
+      <img src="http://31.media.tumblr.com/892202e83fce9d1e899007989d2a785a/tumblr_mvlx3sj8kr1qhrnqwo1_500.jpg" alt="">
+    </div>
+  </div>
+</div>

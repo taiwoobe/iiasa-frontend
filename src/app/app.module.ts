@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
+import { ModalContentComponent } from './components/modal-content/modal-content.component';
 
 
 
@@ -20,7 +21,8 @@ import { FullLayoutComponent } from './layouts/full-layout/full-layout.component
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    FullLayoutComponent
+    FullLayoutComponent,
+    ModalContentComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { FullLayoutComponent } from './layouts/full-layout/full-layout.component
     NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ ModalContentComponent ]
 })
 export class AppModule { }

@@ -2,8 +2,17 @@
 
   <!-- Content Header -->
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 manage-contributions">
       <h3>Manage Contributions</h3>
+      <form class="form-inline">
+        <div class="form-group">
+            <label for="filter">Filter By:</label>
+            <select class="form-control" id="filtered-contributions">
+              <option value="1" selected>Newest - Oldest </option>
+              <option value="2">Oldest - Newest</option>
+            </select>
+          </div>
+      </form>
     </div>
   </div>
   <!-- End of Content Header -->
@@ -14,14 +23,14 @@
       <div class="row">
         <div class="col-12">
           <div class="row">
-            <div class="col-12 col-md-4" *ngFor="let contribution of contributions">
+            <div class="col-12 col-md-4" *ngFor="let contribution of contributions let i = index;">
               <div class="photo-slider">
                 <div class="card-deck">
                   <div class="card">
                     <ngb-carousel *ngIf="contribution" [showNavigationArrows]="showNavigationArrows"
                       [showNavigationIndicators]="showNavigationIndicators">
                       <ng-template ngbSlide *ngFor="let photo of contribution.photos">
-                        <img [src]="photo.url" [alt]="photo.direction" class="contribution-image card-img-top">
+                        <img [src]="photo.url" [alt]="photo.direction" class="contribution-image card-img-top" (click)="selectedContribution(contribution)">
                         <div class="carousel-caption">
                           <p>{{ photo.direction }}</p>
                         </div>
@@ -32,17 +41,17 @@
                           <ng-container *ngFor="let observation of contribution.landobservations">
                             <ul>
                               <li>Device: {{ contribution.platform.device }}</li>
-                              <li> Location: {{ contribution.location.lat }}, {{ contribution.location.lon }}</li>
-                              <li> Land Cover: {{ observation.landcover }}</li>
+                              <li>Location: {{ contribution.location.lat }}, {{ contribution.location.lon }}</li>
+                              <li>Land Cover: {{ observation.landcover }}</li>
                               <li>Land Use: {{ observation.landuse }}</li>
                             </ul>
                           </ng-container>
                         </div>
                     </div>
                     <div class="card-footer">
-                      <small class="text-muted">Updated: {{ contribution.timestamp }}</small>
+                      <small class="text-muted">Uploaded: {{ contribution.timestamp | date:'medium' }}</small>
                       <div>
-                        <button class="btn btn-primary btn-sm">Approve</button>
+                        <button class="btn btn-primary btn-sm" (click)="selectedContribution(contribution)">Approve</button>
                       </div>
                     </div>
                   </div>

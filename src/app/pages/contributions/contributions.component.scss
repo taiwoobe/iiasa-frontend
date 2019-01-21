@@ -3,7 +3,28 @@
     padding-right: 30px;
     h3 {
         color: #094e70;
+        margin-bottom: 0;
+    }
+    .manage-contributions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 15px;
         padding-bottom: 15px;
+        label {
+            margin-right: 15px;
+        }
+    }
+    .form-control{
+        font-size: 15px;
+        label {
+            font-size: 15px;
+        }
+        &:focus {
+            color: #495057;
+            border-color: #042738;
+            box-shadow: none;
+        }
     }
     .card-deck {
         .row {
@@ -69,6 +90,9 @@
         font-size: 12px;
     }
     .btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+        box-shadow: none;
+    }
+    .btn-primary.focus, .btn-primary:focus {
         box-shadow: none;
     }
 }
