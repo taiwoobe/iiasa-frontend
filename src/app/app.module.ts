@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientModule } from  '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { ContributionsComponent } from './pages/contributions/contributions.component';
@@ -28,7 +29,10 @@ import { ModalContentComponent } from './components/modal-content/modal-content.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyB75SIkbYO4J5kEKxLqWwRRbc_tZ09Kkq0'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -6,12 +6,12 @@
       <h3>Manage Contributions</h3>
       <form class="form-inline">
         <div class="form-group">
-            <label for="filter">Filter By:</label>
-            <select class="form-control" id="filtered-contributions">
-              <option value="1" selected>Newest - Oldest </option>
-              <option value="2">Oldest - Newest</option>
-            </select>
-          </div>
+          <label for="filter">Filter By:</label>
+          <select class="form-control" id="filtered-contributions">
+            <option value="1" selected>Newest - Oldest </option>
+            <option value="2">Oldest - Newest</option>
+          </select>
+        </div>
       </form>
     </div>
   </div>
@@ -37,19 +37,19 @@
                       </ng-template>
                     </ngb-carousel>
                     <div class="card-body">
-                        <div>
-                          <ng-container *ngFor="let observation of contribution.landobservations">
-                            <ul>
-                              <li>Device: {{ contribution.platform.device }}</li>
-                              <li>Location: {{ contribution.location.lat }}, {{ contribution.location.lon }}</li>
-                              <li>Land Cover: {{ observation.landcover }}</li>
-                              <li>Land Use: {{ observation.landuse }}</li>
-                            </ul>
-                          </ng-container>
-                        </div>
+                      <div>
+                        <ng-container *ngFor="let observation of contribution.landobservations">
+                          <ul>
+                            <li>Device: {{ contribution.platform.device }}</li>
+                            <li>Location: {{ contribution.location.lat }}, {{ contribution.location.lon }}</li>
+                            <li>Land Cover: {{ observation.landcover }}</li>
+                            <li>Land Use: {{ observation.landuse }}</li>
+                          </ul>
+                        </ng-container>
+                      </div>
                     </div>
                     <div class="card-footer">
-                      <small class="text-muted">Uploaded: {{ contribution.timestamp | date:'medium' }}</small>
+                      <small class="text-muted">Uploaded: {{ contribution.timestamp | date:'mediumDate' }}</small>
                       <div>
                         <button class="btn btn-primary btn-sm" (click)="selectedContribution(contribution)">Approve</button>
                       </div>
