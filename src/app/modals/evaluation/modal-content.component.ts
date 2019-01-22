@@ -44,9 +44,8 @@ export class ModalContentComponent implements OnInit {
 
   // send evaluation details to endpoint 
   submitEvaluation = (evaluate) => {
-    // this.contributionService.evaluateContribution(evaluate).subscribe((data: any) => {
     this.loading = true;
-    this.http.post('https://jsonplaceholder.typicode.com/posts', evaluate).subscribe((data: any) => {
+    this.contributionService.evaluateContribution(evaluate).subscribe((data: any) => {
       this.loading = false;
       this.isSubmitted = true;
       this.status = "Evaluation has been sent successfully.";
