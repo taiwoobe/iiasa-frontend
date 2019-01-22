@@ -7,6 +7,7 @@
     float: right;
     width: 50%;
     height: 100%;
+    min-height: 600px;
     img {
         max-width: 100%;
         width: 100%;
@@ -31,8 +32,13 @@
     }
     .send-btn {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
+        align-items: center;
         padding-top: 15px;
+        p{
+            margin-bottom: 0;
+            color: #094e70;
+        }
     }
     .btn-primary {
         color: #fff;
@@ -48,6 +54,3 @@
         box-shadow: none;
     }
 }
-agm-map {
-    height: 300px;
-  }

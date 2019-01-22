@@ -16,29 +16,30 @@
         </ng-template>
       </ngb-carousel>
       <div class="evaluation-form">
-        <form>
+        <form #evalForm="ngForm" (ngSubmit)="sendEvaluation(evalForm)">
           <div class="form-group">
-            <label for="quality">Quality of Contribution</label>
-            <select class="form-control" id="quality" (change)="onQualitySelect($event)">
-              <option value="" selected> Please Select One </option>
+            <label for="quality">Quality</label>
+            <select class="form-control" id="quality_of_contribution" [(ngModel)]='model.evaluation' name="evaluation" required>
+              <option value="" disabled selected> None </option>
               <option *ngFor="let evaluationOption of evaluationOptions" [value]="evaluationOption.id"> {{
                 evaluationOption.name }} </option>
             </select>
           </div>
           <div class="form-group">
             <label for="comment">Additional Comments</label>
-            <textarea class="form-control" id="comment" rows="5"></textarea>
+            <textarea class="form-control" id="comment" rows="5" [(ngModel)]="model.comment" name="comment" required></textarea>
           </div>
           <div class="send-btn">
-            <button class="btn btn-primary" type="submit">Send</button>
+            <button class="btn btn-primary" type="submit" [disabled]="!evalForm.form.valid || loading">Send</button>
+            <div *ngIf="status">
+              <p>{{ status }} </p>
+            </div>
           </div>
         </form>
       </div>
     </div>
     <div class="right-side">
-      <agm-map [latitude]="lat" [longitude]="lon">
-        <agm-marker [latitude]="lat" [longitude]="lon"></agm-marker>
-      </agm-map>
+      <app-map [data]="userContribution"></app-map>
     </div>
   </div>
 </div>

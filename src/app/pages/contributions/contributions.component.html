@@ -4,15 +4,7 @@
   <div class="row">
     <div class="col-md-12 manage-contributions">
       <h3>Manage Contributions</h3>
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="filter">Filter By:</label>
-          <select class="form-control" id="filtered-contributions">
-            <option value="1" selected>Newest - Oldest </option>
-            <option value="2">Oldest - Newest</option>
-          </select>
-        </div>
-      </form>
+      <app-filter (onFilter)="onFilterSelected($event)"></app-filter>
     </div>
   </div>
   <!-- End of Content Header -->
@@ -22,6 +14,11 @@
     <div class="col-12">
       <div class="row">
         <div class="col-12">
+            <div class="row loading-indicator" *ngIf="loading">
+                <div class="col-12">
+                  <img src="../../../assets/loader.gif" alt="Loading Indicator">
+                </div>
+              </div>
           <div class="row">
             <div class="col-12 col-md-4" *ngFor="let contribution of contributions let i = index;">
               <div class="photo-slider">
@@ -58,7 +55,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
         </div>
       </div>
     </div>

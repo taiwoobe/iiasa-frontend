@@ -1,0 +1,14 @@
+label {
+    margin-right: 15px;
+}
+.form-control{
+    font-size: 15px;
+    label {
+        font-size: 15px;
+    }
+    &:focus {
+        color: #495057;
+        border-color: #042738;
+        box-shadow: none;
+    }
+}

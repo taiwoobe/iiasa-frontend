@@ -10,10 +10,12 @@ import { endpoints } from '../../config/endpoints';
 export class ContributionService  {
     constructor(private http: HttpClient) { }
 
+    // Method to get the list of contributions
     getContributions(): Observable<HttpResponse<any>> {
         return this.http.get<any>(`${environment.API_URL_V1}/${endpoints.GET_CONTRIBUTIONS}`, {observe : 'response'});
     }
 
+    // Method to post an evaluation
     evaluateContribution(data: any): Observable<HttpResponse<any>> {
         return this.http.post(`${environment.API_URL_V2}/${endpoints.EVALUATE_CONTRIBUTION}`, data, {observe : 'response'});
     }

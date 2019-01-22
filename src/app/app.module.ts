@@ -4,14 +4,17 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientModule } from  '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AgmCoreModule } from '@agm/core';
+import { FormsModule } from '@angular/forms';
+import { credentials } from '../app/config/constants';
 
 import { AppComponent } from './app.component';
 import { ContributionsComponent } from './pages/contributions/contributions.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
-import { ModalContentComponent } from './components/modal-content/modal-content.component';
+import { ModalContentComponent } from './modals/evaluation/modal-content.component';
+import { FilterComponent } from './widgets/filter/filter.component';
+import { MapComponent } from './widgets/map/map.component';
 
 
 
@@ -20,18 +23,20 @@ import { ModalContentComponent } from './components/modal-content/modal-content.
     AppComponent,
     ContributionsComponent,
     HeaderComponent,
-    FooterComponent,
     SidebarComponent,
     FullLayoutComponent,
-    ModalContentComponent
+    ModalContentComponent,
+    FilterComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB75SIkbYO4J5kEKxLqWwRRbc_tZ09Kkq0'
+      apiKey: credentials.MAP_API_KEY
     })
   ],
   providers: [],

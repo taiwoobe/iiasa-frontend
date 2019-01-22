@@ -1,0 +1,9 @@
+<form class="form-inline">
+  <div class="form-group">
+    <label for="filter">Filter By:</label>
+    <select class="form-control" id="filteredContributions" (change)="filterSelected($event)">
+      <option value="desc" selected>Newest - Oldest</option>
+      <option value="asc">Oldest - Newest </option>
+    </select>
+  </div>
+</form>

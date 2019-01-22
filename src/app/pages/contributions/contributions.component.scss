@@ -5,15 +5,20 @@
         color: #094e70;
         margin-bottom: 0;
     }
+    .loading-indicator {
+        height: 65vh;
+        .col-12 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
     .manage-contributions {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-top: 15px;
         padding-bottom: 15px;
-        label {
-            margin-right: 15px;
-        }
     }
     .form-control{
         font-size: 15px;
@@ -94,5 +99,13 @@
     }
     .btn-primary.focus, .btn-primary:focus {
         box-shadow: none;
+    }
+    @media(max-width: 580px) {
+        .manage-contribution{
+            display: block;
+            h3 {
+                margin-bottom: 20px;
+            }
+        }
     }
 }
