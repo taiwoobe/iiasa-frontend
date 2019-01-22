@@ -30,6 +30,11 @@
             box-shadow: none;
         }
     }
+    .list-group-item {
+        border: none;
+        padding: 0;
+        padding-bottom: 15px;
+    }
     .send-btn {
         display: flex;
         justify-content: flex-end;

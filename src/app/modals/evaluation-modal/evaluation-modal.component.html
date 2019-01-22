@@ -7,12 +7,13 @@
   </div>
   <div class="modal-body">
     <div class="left-side">
-      <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators" [interval]="0">
+      <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators"
+        [interval]="0">
         <ng-template ngbSlide *ngFor="let photo of userContribution.photos">
           <img [src]="photo.url" [alt]="photo.direction" class="contribution-image card-img-top">
           <div class="carousel-caption">
-              <div class="text-capitalize">{{ photo.direction }}</div>
-            </div>
+            <div class="text-capitalize">{{ photo.direction }}</div>
+          </div>
         </ng-template>
       </ngb-carousel>
       <div class="evaluation-form" *ngIf="isSubmitted; else formFields">
@@ -22,21 +23,29 @@
       </div>
       <ng-template #formFields>
         <div class="evaluation-form">
+          <ul class="list-group">
+            <ng-container *ngFor="let observation of userContribution.landobservations">
+              <li class="list-group-item text-capitalize" *ngFor="let item of observation | keyvalue"><b>{{ item.key }}:</b> {{ item.value }}</li>
+            </ng-container>
+          </ul>
+          <hr/>
           <form #evalForm="ngForm" (ngSubmit)="sendEvaluation(evalForm)" else>
             <div class="form-group">
               <label for="quality">Quality</label>
-              <select class="form-control" id="quality_of_contribution" [(ngModel)]='model.evaluation' name="evaluation" required>
+              <select class="form-control" id="quality_of_contribution" [(ngModel)]='model.evaluation' name="evaluation"
+                required>
                 <option value="" disabled selected> None </option>
-                <option *ngFor="let evaluationOption of evaluationOptions" [value]="evaluationOption.id"> 
+                <option *ngFor="let evaluationOption of evaluationOptions" [value]="evaluationOption.id">
                   {{ evaluationOption.name }} </option>
               </select>
             </div>
             <div class="form-group">
               <label for="comment">Additional Comments</label>
-              <textarea class="form-control" id="comment" rows="5" [(ngModel)]="model.comment" name="comment" required></textarea>
+              <textarea class="form-control" id="comment" rows="3" [(ngModel)]="model.comment" name="comment" required></textarea>
             </div>
             <div class="send-btn">
-              <button class="btn btn-primary" type="submit" [disabled]="!evalForm.form.valid || loading">Send Evaluation</button>
+              <button class="btn btn-primary" type="submit" [disabled]="!evalForm.form.valid || loading">Send
+                Evaluation</button>
             </div>
           </form>
         </div>

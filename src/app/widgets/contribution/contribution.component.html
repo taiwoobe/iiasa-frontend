@@ -12,10 +12,8 @@
     <h5 class="card-title">#Entry {{ contribution.id }} <small class="text-muted float-right">{{ contribution.platform.device }}</small></h5>
   </div>
   <ul class="list-group list-group-flush">
-    <!-- <li class="list-group-item"><b>Location:</b> {{ contribution.location.lat }}, {{ contribution.location.lon }}</li> -->
     <ng-container *ngFor="let observation of contribution.landobservations">
-      <li class="list-group-item"><b>Land Cover:</b> {{ observation.landcover }}</li>
-      <li class="list-group-item"><b>Land Use:</b> {{ observation.landuse }}</li>
+      <li class="list-group-item text-capitalize" *ngFor="let item of observation | keyvalue"><b>{{ item.key }}:</b> {{ item.value }}</li>
     </ng-container>
   </ul>
   <div class="card-footer">
