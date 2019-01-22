@@ -1,5 +1,18 @@
 .navbar {
     padding: 16px 30px;
+    border-bottom: 1px solid #e4e4e4;
+}
+input {
+    padding-left: 34px;
+}
+#navbarSupportedContent {
+    position: relative;
+    i {
+        left: 10px;
+        position: absolute;
+        top: 20px;
+        opacity: .5;
+    }
 }
 .btn-outline-success {
     color: #094e70;
@@ -39,6 +52,11 @@
 .dropdown {
     position: relative;
     display: inline-block;
+}
+.dropdown-toggle::after {
+    right: 0;
+    top: 28px;
+    position: absolute;
 }
 .dropdown-content {
     display: none;

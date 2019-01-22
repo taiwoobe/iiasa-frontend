@@ -17,7 +17,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: 15px;
+        padding-top: 25px;
         padding-bottom: 15px;
     }
     .form-control{
@@ -31,14 +31,6 @@
             box-shadow: none;
         }
     }
-    .card-deck {
-        .row {
-            padding-bottom: 15px;
-            p{
-                font-size: 14px;
-            }
-        }
-    }
     .slider-item {
         img {
             max-width: 100%;
@@ -46,47 +38,6 @@
     }
     .contribution-image {
         width: 100%;
-    }
-    .card {
-        margin-bottom: 20px;
-        .card-body {
-            padding: 0;
-        }
-        .card-footer {
-            border-top: transparent;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-    }
-    ul {
-        padding-left: 0;
-        list-style: none;
-        margin-bottom: 0;
-        li {
-            padding: 10px;
-            border-bottom: 1px solid #dfe0e4;
-            margin-bottom: 0;
-            width: 50%;
-            min-width: auto;
-            white-space: nowrap;
-            float: left;
-            color: #565662;
-            position: relative;
-            font-size: 13px;
-            overflow-x: hidden;
-            &:nth-child(odd):after {
-                content: "";
-                display: block;
-                width: 1px;
-                height: 100%;
-                background: #dfe0e4;
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-        }
     }
     .btn-primary {
         color: #fff;

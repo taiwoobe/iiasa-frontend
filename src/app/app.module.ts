@@ -12,9 +12,10 @@ import { ContributionsComponent } from './pages/contributions/contributions.comp
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
-import { ModalContentComponent } from './modals/evaluation/modal-content.component';
+import { EvaluationModalComponent } from './modals/evaluation-modal/evaluation-modal.component';
 import { FilterComponent } from './widgets/filter/filter.component';
 import { MapComponent } from './widgets/map/map.component';
+import { ContributionComponent } from './widgets/contribution/contribution.component';
 
 
 
@@ -25,9 +26,10 @@ import { MapComponent } from './widgets/map/map.component';
     HeaderComponent,
     SidebarComponent,
     FullLayoutComponent,
-    ModalContentComponent,
+    EvaluationModalComponent,
     FilterComponent,
-    MapComponent
+    MapComponent,
+    ContributionComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,6 @@ import { MapComponent } from './widgets/map/map.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ ModalContentComponent ]
+  entryComponents: [ EvaluationModalComponent ]
 })
 export class AppModule { }

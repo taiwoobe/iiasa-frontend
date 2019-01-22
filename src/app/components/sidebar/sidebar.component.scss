@@ -24,14 +24,18 @@ a:focus {
     flex-grow: 1;
 }
 .sidebar-header {
+    .logo-image {
+        text-align: center;
+    }
     img {
         max-width: 100%;
-        height: auto;
+        height: 100px;
     }
 }
 #sidebar {
     ul {
         li { 
+            border-bottom: 1px solid #356e8a;
             a {
                 text-align: left;
                 padding: 20px;
@@ -48,8 +52,10 @@ a:focus {
     }   
 }
 #sidebar ul.sidebar-components {
-    padding: 20px 0 20px 0;
+    margin-top: 24px;
+    padding: 0;
     border-bottom: 1px solid #094e70;
+    background: #0a4461;
 }
 #sidebar ul li.active > a {
     color: #fff;
@@ -70,7 +76,7 @@ a:focus {
     font-weight: 400;
 }
 .list-unstyled {
-    padding-left: 30px;
+    padding-left: 0px;
 }
 @media (max-width: 768px){
     #sidebar {

@@ -1,18 +1,18 @@
 <div *ngIf="userContribution">
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Entry {{ userContribution.id }}</h4>
+    <h5 class="modal-title" id="modal-basic-title">Entry {{ userContribution.id }}</h5>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <div class="left-side">
-      <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+      <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators" [interval]="0">
         <ng-template ngbSlide *ngFor="let photo of userContribution.photos">
           <img [src]="photo.url" [alt]="photo.direction" class="contribution-image card-img-top">
           <div class="carousel-caption">
-            <p>{{ photo.direction }}</p>
-          </div>
+              <div class="text-capitalize">{{ photo.direction }}</div>
+            </div>
         </ng-template>
       </ngb-carousel>
       <div class="evaluation-form" *ngIf="isSubmitted; else formFields">
@@ -36,7 +36,7 @@
               <textarea class="form-control" id="comment" rows="5" [(ngModel)]="model.comment" name="comment" required></textarea>
             </div>
             <div class="send-btn">
-              <button class="btn btn-primary" type="submit" [disabled]="!evalForm.form.valid || loading">Send</button>
+              <button class="btn btn-primary" type="submit" [disabled]="!evalForm.form.valid || loading">Send Evaluation</button>
             </div>
           </form>
         </div>

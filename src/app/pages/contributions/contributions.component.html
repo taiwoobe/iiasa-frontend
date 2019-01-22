@@ -14,48 +14,16 @@
     <div class="col-12">
       <div class="row">
         <div class="col-12">
-            <div class="row loading-indicator" *ngIf="loading">
-                <div class="col-12">
-                  <img src="../../../assets/loader.gif" alt="Loading Indicator">
-                </div>
-              </div>
+          <div class="row loading-indicator" *ngIf="loading">
+            <div class="col-12">
+              <img src="../../../assets/loader.gif" alt="Loading Indicator">
+            </div>
+          </div>
           <div class="row">
             <div class="col-12 col-md-4" *ngFor="let contribution of contributions let i = index;">
-              <div class="photo-slider">
-                <div class="card-deck">
-                  <div class="card">
-                    <ngb-carousel *ngIf="contribution" [showNavigationArrows]="showNavigationArrows"
-                      [showNavigationIndicators]="showNavigationIndicators">
-                      <ng-template ngbSlide *ngFor="let photo of contribution.photos">
-                        <img [src]="photo.url" [alt]="photo.direction" class="contribution-image card-img-top" (click)="selectedContribution(contribution)">
-                        <div class="carousel-caption">
-                          <p>{{ photo.direction }}</p>
-                        </div>
-                      </ng-template>
-                    </ngb-carousel>
-                    <div class="card-body">
-                      <div>
-                        <ng-container *ngFor="let observation of contribution.landobservations">
-                          <ul>
-                            <li>Device: {{ contribution.platform.device }}</li>
-                            <li>Location: {{ contribution.location.lat }}, {{ contribution.location.lon }}</li>
-                            <li>Land Cover: {{ observation.landcover }}</li>
-                            <li>Land Use: {{ observation.landuse }}</li>
-                          </ul>
-                        </ng-container>
-                      </div>
-                    </div>
-                    <div class="card-footer">
-                      <small class="text-muted">Uploaded: {{ contribution.timestamp | date:'mediumDate' }}</small>
-                      <div>
-                        <button class="btn btn-primary btn-sm" (click)="selectedContribution(contribution)">Approve</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <app-contribution [data]="contribution"></app-contribution>
             </div>
-          </div> 
+          </div>
         </div>
       </div>
     </div>

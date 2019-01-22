@@ -7,8 +7,9 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="form-inline mr-auto" style="width: 50%;">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 100%;">
+      <form class="form-inline mr-auto" style="width: 100%; max-width: 360px">
+        <input class="form-control mr-sm-2" type="search" placeholder="Type to search" aria-label="Search" style="width: 100%;">
+        <i class="fas fa-search"></i>
       </form>
       <div class="mx-auto">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add Contribution</button>
@@ -18,7 +19,9 @@
           <div class="user-pics">
             <img src="../../../assets/icon.png" alt="User Profile">
             <div class="dropdown">
-              <button class="dropbtn"><a class="nav-link user-profile-name">Administrator</a></button>
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link user-profile-name">Administrator</a>
+                </button>
               <div class="arrow_div"></div>
               <div class="dropdown-content">
                 <a href="#"> Profile</a>

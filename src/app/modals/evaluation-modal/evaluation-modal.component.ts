@@ -6,12 +6,12 @@ import { NgForm } from '@angular/forms';
 import { options } from '../../config/constants';
 
 @Component({
-  selector: 'app-modal-content',
-  templateUrl: './modal-content.component.html',
-  styleUrls: ['./modal-content.component.scss'],
+  selector: 'app-evaluation-modal',
+  templateUrl: './evaluation-modal.component.html',
+  styleUrls: ['./evaluation-modal.component.scss'],
   providers: [NgbCarouselConfig]
 })
-export class ModalContentComponent implements OnInit {
+export class EvaluationModalComponent implements OnInit {
   showNavigationArrows = true;
   showNavigationIndicators = false;
   @Input() public userContribution;
@@ -25,6 +25,12 @@ export class ModalContentComponent implements OnInit {
   evaluationOptions = options.EVALUATION_TYPES;
 
   constructor(config: NgbCarouselConfig, public activeModal: NgbActiveModal, private contributionService: ContributionService, private http: HttpClient) { 
+    this.setCarouselConfig(config);
+  }
+
+  ngOnInit() {}
+
+  setCarouselConfig = (config) => {
     config.showNavigationArrows = true;
     config.showNavigationIndicators = false;
     config.interval = 10000;
@@ -32,8 +38,6 @@ export class ModalContentComponent implements OnInit {
     config.keyboard = true;
     config.pauseOnHover = true;
   }
-
-  ngOnInit() {}
 
   sendEvaluation = (e) => {
     if (e.form.valid) {

@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ContributionService } from '../../services/contribution/contribution.service';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { ModalContentComponent } from '../../modals/evaluation/modal-content.component';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
 import { orderBy } from 'lodash';
@@ -15,22 +13,13 @@ import { orderBy } from 'lodash';
 })
 
 export class ContributionsComponent implements OnInit, OnDestroy {
-  showNavigationArrows = true;
-  showNavigationIndicators = false;
   loading = true;
 
   // Defining the contributions variable as an Array of Objects 
   contributions: Array<object> = [];
   private ngUnsubscribe = new Subject();
 
-  constructor(config: NgbCarouselConfig, private contributionService: ContributionService, private modalService: NgbModal) {
-    config.showNavigationArrows = true;
-    config.showNavigationIndicators = false;
-    config.interval = 10000;
-    config.wrap = true;
-    config.keyboard = true;
-    config.pauseOnHover = true;
-   }
+  constructor(private contributionService: ContributionService) {}
 
   ngOnInit() {
     this.getContributions();
@@ -55,12 +44,6 @@ export class ContributionsComponent implements OnInit, OnDestroy {
 
   onError = (error) => {
     console.log(error);
-  }
-
-  // Passing the selected Contribution to the Modal Component
-  selectedContribution = (contribution) => {
-    const modalRef = this.modalService.open(ModalContentComponent, { centered: true, size: 'lg' });
-    modalRef.componentInstance.userContribution = contribution;
   }
 
   ngOnDestroy(): any {
