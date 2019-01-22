@@ -21,6 +21,7 @@ export class ModalContentComponent implements OnInit {
   }
   status: string = "";
   loading: boolean = false;
+  isSubmitted = false;
   evaluationOptions = options.EVALUATION_TYPES;
 
   constructor(config: NgbCarouselConfig, public activeModal: NgbActiveModal, private contributionService: ContributionService, private http: HttpClient) { 
@@ -47,6 +48,7 @@ export class ModalContentComponent implements OnInit {
     this.loading = true;
     this.http.post('https://jsonplaceholder.typicode.com/posts', evaluate).subscribe((data: any) => {
       this.loading = false;
+      this.isSubmitted = true;
       this.status = "Evaluation has been sent successfully.";
       error => console.log(error);
     });

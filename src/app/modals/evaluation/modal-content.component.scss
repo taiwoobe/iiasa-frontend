@@ -32,13 +32,8 @@
     }
     .send-btn {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: flex-end;
         padding-top: 15px;
-        p{
-            margin-bottom: 0;
-            color: #094e70;
-        }
     }
     .btn-primary {
         color: #fff;
@@ -52,5 +47,11 @@
     }
     .btn-primary.focus, .btn-primary:focus {
         box-shadow: none;
+    }
+}
+@media (max-width: 767px) {
+    .left-side, .right-side {
+        float: none;
+        width: 100%;
     }
 }
