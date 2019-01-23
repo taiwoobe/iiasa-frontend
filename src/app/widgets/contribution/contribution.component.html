@@ -1,13 +1,5 @@
 <div class="card">
-  <ngb-carousel *ngIf="contribution" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators"
-    [interval]="0">
-    <ng-template ngbSlide *ngFor="let photo of contribution.photos">
-      <img [src]="photo.url" [alt]="photo.direction" class="contribution-image card-img-top" (click)="selectedContribution(contribution)">
-      <div class="carousel-caption">
-        <div class="text-capitalize">{{ photo.direction }}</div>
-      </div>
-    </ng-template>
-  </ngb-carousel>
+<app-contribution-carousel [data]="contribution"></app-contribution-carousel>
   <div class="card-body">
     <h5 class="card-title">#Entry {{ contribution.id }} <small class="text-muted float-right">{{ contribution.platform.device }}</small></h5>
   </div>

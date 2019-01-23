@@ -16,6 +16,7 @@ import { EvaluationModalComponent } from './modals/evaluation-modal/evaluation-m
 import { FilterComponent } from './widgets/filter/filter.component';
 import { MapComponent } from './widgets/map/map.component';
 import { ContributionComponent } from './widgets/contribution/contribution.component';
+import { ContributionCarouselComponent } from './widgets/contribution-carousel/contribution-carousel.component';
 
 
 
@@ -29,7 +30,8 @@ import { ContributionComponent } from './widgets/contribution/contribution.compo
     EvaluationModalComponent,
     FilterComponent,
     MapComponent,
-    ContributionComponent
+    ContributionComponent,
+    ContributionCarouselComponent
   ],
   imports: [
     BrowserModule,

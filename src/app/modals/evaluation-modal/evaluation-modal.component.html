@@ -7,15 +7,7 @@
   </div>
   <div class="modal-body">
     <div class="left-side">
-      <ngb-carousel [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators"
-        [interval]="0">
-        <ng-template ngbSlide *ngFor="let photo of userContribution.photos">
-          <img [src]="photo.url" [alt]="photo.direction" class="contribution-image card-img-top">
-          <div class="carousel-caption">
-            <div class="text-capitalize">{{ photo.direction }}</div>
-          </div>
-        </ng-template>
-      </ngb-carousel>
+      <app-contribution-carousel [data]="userContribution"></app-contribution-carousel>
       <div class="evaluation-form" *ngIf="isSubmitted; else formFields">
         <p class="alert alert-success" role="alert">
           {{ status }}

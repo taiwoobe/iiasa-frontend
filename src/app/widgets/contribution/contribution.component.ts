@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { EvaluationModalComponent } from '../../modals/evaluation-modal/evaluation-modal.component';
-import { NgbModal, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-contribution',
@@ -8,19 +8,10 @@ import { NgbModal, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./contribution.component.scss']
 })
 export class ContributionComponent implements OnInit {
-  showNavigationArrows = true;
-  showNavigationIndicators = false;
   @Input() public data;
   contribution = [];
 
-  constructor(config: NgbCarouselConfig, private modalService: NgbModal) { 
-    config.showNavigationArrows = true;
-    config.showNavigationIndicators = false;
-    config.interval = 10000;
-    config.wrap = true;
-    config.keyboard = true;
-    config.pauseOnHover = true;
-  }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
     this.contribution = this.data;
