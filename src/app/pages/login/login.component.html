@@ -1,0 +1,25 @@
+<div class="">
+  <div class="loginSection">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 loginForm">
+          <form (ngSubmit)="submit()">
+            <h2>Login to Admin Panel</h2>
+            <label for="email"> Email Address: <small>(eve.holt@reqres.in)</small></label>
+            <input type="text" required class="form-control" name="email" placeholder="Enter Email Address" [(ngModel)]="email">
+            <br>
+            <label for="password"> Password: <small>(cityslicka)</small></label>
+            <input type="password" required class="form-control" name="password" placeholder="Enter Password" [(ngModel)]="password">
+            <br>
+            <div class="spinner-holder">
+              <button class="btn btn-primary" type="submit" [disabled]="loading">Login</button>
+              <div class="alert alert-danger" role="alert" *ngIf="error">
+                {{error}}
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

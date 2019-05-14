@@ -4,8 +4,12 @@ import { RouterModule, Routes }  from '@angular/router';
 
 import { ContributionsComponent } from './pages/contributions/contributions.component';
 import { FullLayoutComponent } from './layouts/full-layout/full-layout.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './guards/auth.guards';
 
-const appRoutes: Routes = [{
+
+const appRoutes: Routes = [
+  {
   path: '', 
   component: FullLayoutComponent,
   children: [
@@ -14,8 +18,10 @@ const appRoutes: Routes = [{
       pathMatch: 'full',
       component: ContributionsComponent
     }
-  ]
-}
+  ],
+  canActivate: [AuthGuard]
+  },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

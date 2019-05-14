@@ -17,6 +17,11 @@ import { FilterComponent } from './widgets/filter/filter.component';
 import { MapComponent } from './widgets/map/map.component';
 import { ContributionComponent } from './widgets/contribution/contribution.component';
 import { ContributionCarouselComponent } from './widgets/contribution-carousel/contribution-carousel.component';
+import { LoginComponent } from './pages/login/login.component';
+
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthGuard } from './guards/auth.guards';
+import { AuthenticationService } from './services/authentication.service';
 
 
 
@@ -31,7 +36,8 @@ import { ContributionCarouselComponent } from './widgets/contribution-carousel/c
     FilterComponent,
     MapComponent,
     ContributionComponent,
-    ContributionCarouselComponent
+    ContributionCarouselComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +47,18 @@ import { ContributionCarouselComponent } from './widgets/contribution-carousel/c
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: credentials.MAP_API_KEY
+    }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function  tokenGetter() {
+          return localStorage.getItem('token');
+        },
+        whitelistedDomains: ['localhost:4200'],
+        blacklistedRoutes: ['http://localhost:4200/auth/login']
+      }
     })
   ],
-  providers: [],
+  providers: [AuthenticationService, AuthGuard],
   bootstrap: [AppComponent],
   entryComponents: [ EvaluationModalComponent ]
 })

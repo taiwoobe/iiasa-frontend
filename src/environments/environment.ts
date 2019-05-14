@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   API_URL_V1: 'https://api.myjson.com',
-  API_URL_V2: 'https://demo0929535.mockable.io'
+  API_URL_V2: 'https://demo0929535.mockable.io',
+  API_URL_V3: 'https://reqres.in',
 };
 
 /*
